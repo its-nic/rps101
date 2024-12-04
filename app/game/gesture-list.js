@@ -28,7 +28,7 @@ export default function GestureList() {
 
 async function fetchGestures() {
     try {
-        const response = await fetch("/api/gestures");
+        const response = await fetch("http://rps101.vercel.app/api/gestures");
         const data = await response.json();
         return data;
     }
