@@ -15,10 +15,7 @@ export default function Home() {
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <ul>
-          <li>Game design and images by <Link href="https://www.umop.com/rps101.htm" target="_blank" className="underline">David C. Lovelace</Link></li>
-          <li>API for gestures and win logic by <Link href="https://rps101.pythonanywhere.com/api" target="_blank" className="underline">Adam Clement</Link></li>
-        </ul>
+        <p>Game design and images by <Link href="https://www.umop.com/rps101.htm" target="_blank" className="underline">David C. Lovelace</Link></p>
       </footer>
     </div>
   );

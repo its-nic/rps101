@@ -6,7 +6,6 @@ export default function Gesture({name}) {
             <img 
                 src={(`/img/${name}.png`)}
                 onError={({currentTarget}) => {
-                    console.log("image error")
                     currentTarget.onError = null;
                     currentTarget.src=(`/img/${name}.gif`);
                 }}

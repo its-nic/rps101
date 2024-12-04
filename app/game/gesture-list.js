@@ -28,7 +28,7 @@ export default function GestureList() {
 
 async function fetchGestures() {
     try {
-        const response = await fetch("https://rps101.pythonanywhere.com/api/v1/objects/all");
+        const response = await fetch("/api/gestures");
         const data = await response.json();
         return data;
     }
