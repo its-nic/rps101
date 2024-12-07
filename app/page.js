@@ -75,12 +75,14 @@ const handleReset = () => {
       {gameEnd ? (
         <main className="flex flex-col items-center">
           <div className="flex flex-nowrap">
-            <section className="flex flex-col items-center min-w-64 max-w-64 pb-4">
-              <h3 className="text-center">YOUR PICK: {userGesture.name}</h3>
+            <section className="flex flex-col items-center min-w-52 max-w-52 pb-4">
+              <h3 className="font-bold text-center text-xl text-green-500 pb-2">YOU:</h3>
+              <p className="text-center"> {userGesture.name}</p>
               <img src={(`/img/${userGesture.name}.${userGesture.type}`)}/>
             </section>
-            <section className="flex flex-col items-center  min-w-64 max-w-64 pb-4">
-              <h3 className="text-center">CPU PICK: {cpuGesture.name}</h3>
+            <section className="flex flex-col items-center min-w-52 max-w-52 pb-4">
+              <h3 className="font-bold text-center text-xl text-red-500 pb-2">CPU:</h3>
+              <p className="text-center">{cpuGesture.name}</p>
               <img src={(`/img/${cpuGesture.name}.${cpuGesture.type}`)}/>
             </section>
           </div>
