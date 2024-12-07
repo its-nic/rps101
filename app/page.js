@@ -51,11 +51,11 @@ const handleGestureSelect = async (gesture) => {
         }
       })
     }
-    setUserGesture(gesture);
-    setCpuGesture(cpuMove);
     setCondition(winCondition.winner + winCondition.result + winCondition.loser + winCondition.extra);
-    setGameEnd(true);
   }
+  setUserGesture(gesture);
+  setCpuGesture(cpuMove);
+  setGameEnd(true);
 }
 
 const handleReset = () => {
@@ -78,12 +78,12 @@ const handleReset = () => {
             <section className="flex flex-col items-center min-w-52 max-w-52 pb-4">
               <h3 className="font-bold text-center text-xl text-green-500 pb-2">YOU:</h3>
               <p className="text-center"> {userGesture.name}</p>
-              <img src={(`/img/${userGesture.name}.${userGesture.type}`)}/>
+              <img src={(`/img/${userGesture.name}.${userGesture.type}`)} alt={(`Gesture for ${userGesture.name}`)}/>
             </section>
             <section className="flex flex-col items-center min-w-52 max-w-52 pb-4">
               <h3 className="font-bold text-center text-xl text-red-500 pb-2">CPU:</h3>
               <p className="text-center">{cpuGesture.name}</p>
-              <img src={(`/img/${cpuGesture.name}.${cpuGesture.type}`)}/>
+              <img src={(`/img/${cpuGesture.name}.${cpuGesture.type}`)} alt={(`Gesture for ${cpuGesture.name}`)}/>
             </section>
           </div>
           {result == "WIN" ? (
