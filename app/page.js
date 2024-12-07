@@ -30,7 +30,7 @@ const handleGestureSelect = async (gesture) => {
   setGameEnd(true);
 
   if(gesture.name == cpuMove.name) {
-    setResult("TIE");
+    setResult("DRAW");
     setCondition("");
   }
   else {
@@ -88,8 +88,10 @@ const handleReset = () => {
             <p className="text-4xl font-bold text-green-500">WIN!</p>
           ) : result == "LOSE" ? (
             <p className="text-4xl font-bold text-red-500">LOSE!</p>
-          ) : (
+          ) : result == "DRAW" ? (
             <p className="text-4xl font-bold text-blue-500">DRAW!</p>
+          ) : ( 
+          <p></p>
           )}
           <p className="pt-2">{condition}</p>
           <button onClick={handleReset} className="bg-blue-600 px-4 py-3 rounded-xl mt-8 hover:bg-blue-700">Play Again</button>
