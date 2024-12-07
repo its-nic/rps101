@@ -58,7 +58,11 @@ const handleGestureSelect = async (gesture) => {
   }
 }
 
-const handleReset = () => setGameEnd(false);
+const handleReset = () => {
+  setGameEnd(false); 
+  setCondition("");
+  setResult("");
+}
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-slate-900 text-white">
@@ -70,13 +74,29 @@ const handleReset = () => setGameEnd(false);
       </header>
       {gameEnd ? (
         <main className="flex flex-col items-center">
-          <p>Your move: {userGesture.name}, CPU move: {cpuGesture.name}</p>
-          <p>{result}: {condition}</p>
-          <button onClick={handleReset}>Play again</button>
+          <div className="flex flex-nowrap">
+            <section className="flex flex-col items-center min-w-64 max-w-64 pb-4">
+              <h3 className="text-center">YOUR PICK: {userGesture.name}</h3>
+              <img src={(`/img/${userGesture.name}.${userGesture.type}`)}/>
+            </section>
+            <section className="flex flex-col items-center  min-w-64 max-w-64 pb-4">
+              <h3 className="text-center">CPU PICK: {cpuGesture.name}</h3>
+              <img src={(`/img/${cpuGesture.name}.${cpuGesture.type}`)}/>
+            </section>
+          </div>
+          {result == "WIN" ? (
+            <p className="text-4xl font-bold text-green-500">WIN!</p>
+          ) : result == "LOSE" ? (
+            <p className="text-4xl font-bold text-red-500">LOSE!</p>
+          ) : (
+            <p className="text-4xl font-bold text-blue-500">DRAW!</p>
+          )}
+          <p className="pt-2">{condition}</p>
+          <button onClick={handleReset} className="bg-blue-600 px-4 py-3 rounded-xl mt-8 hover:bg-blue-700">Play Again</button>
         </main>
       ) : (
         <main className="flex flex-col items-center">
-          <p className="text-3xl">Select a Gesture Below to Play!</p>
+          <p className="text-3xl">Select a Gesture to Play!</p>
           <GestureList gestures={gestures} onGestureClick={handleGestureSelect}/>
         </main>
         )}
