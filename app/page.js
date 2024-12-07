@@ -2,8 +2,21 @@
 
 import Link from "next/link";
 import GestureList from "./game/gesture-list";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+
+  const [gestures, setGestures] = useState([]);
+
+  async function loadGestures() {
+      setGestures(await fetchGestures());
+  }
+
+  useEffect(() => {
+    (async () => {
+        await loadGestures();
+    })();
+}, []);
 
 const handleGestureSelect = (gesture) => {
   console.log(gesture);
@@ -21,8 +34,19 @@ const handleGestureSelect = (gesture) => {
       </header>
       <main className="flex flex-col items-center">
         <p className="text-3xl">Select a Gesture Below to Play!</p>
-        <GestureList onGestureClick={handleGestureSelect}/>
+        <GestureList gestures={gestures} onGestureClick={handleGestureSelect}/>
       </main>
     </div>
   );
+}
+
+async function fetchGestures() {
+  try {
+      const response = await fetch("/gestures");
+      const data = await response.json();
+      return data;
+  }
+  catch (error) {
+      console.log(`Error: ${error.message}`);
+  }
 }
