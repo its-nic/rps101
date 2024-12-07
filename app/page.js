@@ -24,10 +24,7 @@ export default function Home() {
 }, []);
 
 const handleGestureSelect = async (gesture) => {
-  setUserGesture(gesture);
   var cpuMove = gestures[Math.floor(Math.random() * gestures.length)];
-  setCpuGesture(cpuMove);
-  setGameEnd(true);
 
   if(gesture.name == cpuMove.name) {
     setResult("DRAW");
@@ -54,7 +51,10 @@ const handleGestureSelect = async (gesture) => {
         }
       })
     }
+    setUserGesture(gesture);
+    setCpuGesture(cpuMove);
     setCondition(winCondition.winner + winCondition.result + winCondition.loser + winCondition.extra);
+    setGameEnd(true);
   }
 }
 
