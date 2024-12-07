@@ -112,7 +112,7 @@ export async function GET(request, {params}) {
             ];
             return new Response(JSON.stringify(tornado), {status:200});
 
-        case "QUICKSAND ":
+        case "QUICKSAND":
             const quicksand = [
                 {winner: "QUICKSAND ", result: " BECOMES ", loser: "PIT", extra: ""},
                 {winner: "QUICKSAND ", result: " SWALLOWS ", loser: "CHAIN", extra: ""},
