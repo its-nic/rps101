@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Gesture from "./gesture";
 
-export default function GestureList() {
+export default function GestureList({onGestureClick}) {
 
     const [gestures, setGestures] = useState([]);
 
@@ -18,11 +18,11 @@ export default function GestureList() {
     }, []);
 
     return(
-        <ul>
+        <div className="flex justify-center flex-wrap">
             {gestures != null && gestures.map((gesture) => (
-                <li key={gesture}><Gesture name={gesture} /></li>
+                <Gesture key={gesture} name={gesture} onGestureClick={onGestureClick}/>
             ))}
-        </ul>
+        </div>
     );
 }
 
