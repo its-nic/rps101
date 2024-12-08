@@ -72,8 +72,9 @@ const handleReset = () => {
         <p className="text-sm mt-4">Game design and images by <Link href="https://www.umop.com/rps101.htm"target="_blank" className="underline">David C. Lovelace</Link></p>
         <p className="text-sm">Check out all the possible gestures <Link href="https://www.umop.com/rps101/alloutcomes.htm" target="_blank" className="underline">here</Link></p>
       </header>
+      <main>
       {gameEnd ? (
-        <main className="flex flex-col items-center">
+        <div>
           <div className="flex flex-nowrap">
             <section className="flex flex-col items-center min-w-52 max-w-52 pb-4">
               <h3 className="font-bold text-center text-xl text-green-500 pb-2">YOU:</h3>
@@ -86,24 +87,28 @@ const handleReset = () => {
               <img src={(`/img/${cpuGesture.name}.${cpuGesture.type}`)} alt={(`Gesture for ${cpuGesture.name}`)}/>
             </section>
           </div>
-          {result == "WIN" ? (
-            <p className="text-4xl font-bold text-green-500">WIN!</p>
-          ) : result == "LOSE" ? (
-            <p className="text-4xl font-bold text-red-500">LOSE!</p>
-          ) : result == "DRAW" ? (
-            <p className="text-4xl font-bold text-blue-500">DRAW!</p>
-          ) : ( 
-          <p></p>
-          )}
-          <p className="pt-2">{condition}</p>
-          <button onClick={handleReset} className="bg-blue-600 px-4 py-3 rounded-xl mt-8 hover:bg-blue-700">Play Again</button>
-        </main>
+          <div className="flex flex-col items-center">
+            {result == "WIN" ? (
+              <p className="text-4xl font-bold text-green-500">WIN!</p>
+            ) : result == "LOSE" ? (
+              <p className="text-4xl font-bold text-red-500">LOSE!</p>
+            ) : result == "DRAW" ? (
+              <p className="text-4xl font-bold text-blue-500">DRAW!</p>
+            ) : ( 
+              <p></p>
+            )}
+            <p className="pt-2">{condition}</p>
+            <button onClick={handleReset} className="bg-blue-600 px-4 py-3 rounded-xl mt-8 hover:bg-blue-700">Play Again</button>
+          </div>
+        </div>
       ) : (
-        <main className="flex flex-col items-center">
+        <div>
           <p className="text-3xl">Select a Gesture to Play!</p>
           <GestureList gestures={gestures} onGestureClick={handleGestureSelect}/>
-        </main>
+        </div>
         )}
+      </main>
+
     </div>
   );
 }
