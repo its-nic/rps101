@@ -103,7 +103,7 @@ const handleReset = () => {
         </div>
       ) : (
         <div>
-          <p className="text-3xl">Select a Gesture to Play!</p>
+          <p className="text-3xl text-center">Select a Gesture to Play!</p>
           <GestureList gestures={gestures} onGestureClick={handleGestureSelect}/>
         </div>
         )}
